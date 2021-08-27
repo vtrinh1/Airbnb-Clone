@@ -16,6 +16,6 @@ Router.events.on("routeChangeError", progress.finish)
 
 function MyApp({ Component, pageProps }) {
   return <Component {...pageProps} />
-}import ProgressBar from "@badrap/bar-of-progress";
+}
 
 export default MyApp
