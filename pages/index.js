@@ -3,14 +3,15 @@ import Footer from '../components/Footer';
 import Header from '../components/Header'
 import HeroImg from '../components/HeroImg'
 import LargeCard from '../components/LargeCard';
-import MediumCard from '../components/MediumCard';
 import SmallCard from '../components/SmallCard';
+import ExtraSmallCard from '../components/ExtraSmallCard';
+import MediumCard from '../components/MediumCard';
 
-export default function Home({exploreData, cardsData}) {
+export default function Home({exploreData, liveCardsData, discoverCardsData}) {
   return (
     <div className="">
       <Head>
-        <title>Create Next App</title>
+        <title>Airbnb</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
@@ -19,11 +20,10 @@ export default function Home({exploreData, cardsData}) {
       <main className="max-w-7xl mx-auto px-8 sm:px-16">
         <section className="pt-6">
           <h2 className="text-4xl font-semibold pb-5">Explore nearby</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl-grids-col-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl-grids-col-4">
             {exploreData?.map((item) => (
-              <SmallCard
-              // make id for key
-                key={item.img}
+              <ExtraSmallCard
+                key={item.id}
                 img={item.img}
                 distance={item.distance}
                 location={item.location}
@@ -34,9 +34,9 @@ export default function Home({exploreData, cardsData}) {
         <section>
             <h2 className="text-4xl font-semibold py-8">Live Anywhere</h2>
             <div className="flex space-x-3 overflow-scroll scrollbar-hide p-3 -ml-3">
-              {cardsData?.map((item) => (
-                <MediumCard
-                  key={item.img}
+              {liveCardsData?.map((item) => (
+                <SmallCard
+                  key={item.id}
                   img={item.img}
                   title={item.title}
                 />
@@ -44,11 +44,24 @@ export default function Home({exploreData, cardsData}) {
             </div>
           </section>
           <LargeCard 
-            img="https://links.papareact.com/4cj"
+            img="https://a0.muscache.com/im/pictures/2da67c1c-0c61-4629-8798-1d4de1ac9291.jpg?im_w=1440"
             title="The Greatest Outdoors"
             description="Wishlists curated by Airbnb."
             buttonText="Get Inspired"
           />
+          <section className="pb-12" >
+            <h2 className="text-4xl font-semibold py-8">Discover things to do</h2>
+            <div className="flex space-x-3 overflow-scroll scrollbar-hide p-3 -ml-3">
+              {discoverCardsData?.map((item) => (
+                <MediumCard
+                  key={item.id}
+                  img={item.img}
+                  title={item.title}
+                  description={item.description}
+                />
+              ))}
+            </div>
+          </section>
       </main>
       <Footer />
     </div>
@@ -56,16 +69,23 @@ export default function Home({exploreData, cardsData}) {
 }
 
 export async function getStaticProps() {
-  const exploreData = await fetch("https://links.papareact.com/pyp").then(
+  const exploreData = await fetch("https://jsonkeeper.com/b/P2GN").then(
     (res) => res.json()
   );
 
-  const cardsData = await fetch("https://links.papareact.com/zp1").then((res) => res.json());
+  const liveCardsData = await fetch("https://jsonkeeper.com/b/OA7F").then(
+    (res) => res.json()
+  );
+
+  const discoverCardsData = await fetch("https://jsonkeeper.com/b/2NQR").then(
+    (res) => res.json()
+  );
 
   return {
     props: {
       exploreData,
-      cardsData,
+      liveCardsData,
+      discoverCardsData,
     },
   };
 }

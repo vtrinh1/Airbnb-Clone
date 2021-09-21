@@ -45,17 +45,17 @@ function Header({placeholder}) {
       {/* left */}
       <div
         onClick={() => router.push("/")}
-        className="relative flex items-center h-10 cursor-pointer my-auto"
+        className="relative flex items-center h-12 cursor-pointer my-auto"
       >
         <Image
-          src="https://links.papareact.com/qd3"
+          src="https://cdn.icon-icons.com/icons2/2699/PNG/512/airbnb_logo_icon_170606.png"
           layout="fill"
           objectFit="contain"
           objectPosition="left"  
         />
       </div>
       {/* middle */}
-      <div className="flex items-center md:border-2 rounded-full py-2 md:shadow-sm">
+      <div className="flex items-center md:border-2 rounded-full py-2 md:shadow-sm hover:shadow-md transition duration-150">
         <input
           values={searchInput}
           onChange={(e) => setSearchInput(e.target.value)}
@@ -63,14 +63,13 @@ function Header({placeholder}) {
           type="text"
           placeholder={placeholder || "Start your search"}
         />
-        <SearchIcon className="hidden md:inline-flex h-8 bg-red-400 text-white rounded-full p-2 cursor-pointer md:mx-2" />
+        <SearchIcon className="hidden lg:inline-flex h-8 bg-red-400 text-white rounded-full p-2 cursor-pointer md:mx-2" />
       </div>
-
       {/* right */}
-      <div className="flex items-center space-x-4 justify-end text-gray-500">
-        <p className="hidden md:inline cursor-pointer">Become a host</p>
-        <GlobeAltIcon className="h-6 cursor-pointer" />
-        <div className="flex items-center space-x-2 border-2 p-2 rounded-full">
+      <div className="flex items-center justify-end text-gray-500">
+        <p className="hidden lg:inline cursor-pointer py-2 px-4 hover:bg-gray-100 rounded-full">Become a host</p>
+        <div className="p-2 hover:bg-gray-100 rounded-full"><GlobeAltIcon className="hidden sm:inline h-6 cursor-pointer" /></div>
+        <div className="flex items-center space-x-2 border-2 p-2 ml-2 rounded-full cursor-pointer hover:shadow-md transition duration-150">
           <MenuIcon className="h-6" />
           <UserCircleIcon className="h-6" />
         </div>
@@ -85,7 +84,7 @@ function Header({placeholder}) {
             onChange={handleSelect}
           />
           <div className="flex items-center border-b mb-4">
-            <h2 className="text-2xl flex-grow font-semibold">
+            <h2 className="text-2xl flex-grow font-semibold mb-4">
               Number of Guests
             </h2>
             <UsersIcon className="h-5" />
