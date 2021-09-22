@@ -15,8 +15,8 @@ function Search({searchResults}) {
   return (
     <div className="h-screen">
       <Header placeholder={`${location} | ${range} | ${noOfGuests} guests`} />
-      <main className="flex">
-        <section className="flex-grow pt-14 px-6">
+      <main className="flex flex-col xl:flex-row">
+        <section className="flex-grow pt-14 px-6 mb-6">
           <p className="text-xs">
             300+ Stays - {range} - for {noOfGuests} guests
           </p>
@@ -46,7 +46,10 @@ function Search({searchResults}) {
           </div>
          
         </section>
-        <section className="hidden xl:inline-flex xl:min-w-[600px]">
+        <section className="hidden xl:inline-flex xl:min-w-[500px]">
+          <Map searchResults={searchResults} />
+        </section>
+        <section className="xl:hidden w-full h-[360px] mb-8">
           <Map searchResults={searchResults} />
         </section>
       </main>
@@ -58,7 +61,7 @@ function Search({searchResults}) {
 export default Search
 
 export async function getServerSideProps() {
-  const searchResults = await fetch("https://jsonkeeper.com/b/4AEU").then(res => res.json())
+  const searchResults = await fetch("https://jsonkeeper.com/b/AURF").then(res => res.json())
 
   return {
     props: {

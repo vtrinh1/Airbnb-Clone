@@ -17,7 +17,7 @@ function Map({searchResults}) {
     height: "100%",
     latitude: center.latitude,
     longitude: center.longitude,
-    zoom: 11,
+    zoom: 8,
   })
 
   return (
@@ -28,7 +28,7 @@ function Map({searchResults}) {
       onViewportChange={(nextViewport) => setViewport(nextViewport)}
     >
       {searchResults.map(result => (
-        <div key={result.long}>
+        <div key={result.id}>
           <Marker
             longitude={result.long}
             latitude={result.lat}
@@ -37,7 +37,7 @@ function Map({searchResults}) {
           >
             <p
               onClick={() => setSelectedLocation(result)}
-              className="cursor-pointer text-2xl animate-bounce"
+              className="cursor-pointer text-2xl"
             >📌</p>
           </Marker>
           {selectedLocation.long === result.long ? (
@@ -46,8 +46,10 @@ function Map({searchResults}) {
               closeOnClick={true}
               latitude={result.lat}
               longitude={result.long}
+              className="w-56 z-10"
             >
               {result.title}
+              <img className="mt-2 rounded-xl" src={result.img} />
             </Popup>
           ):(
             false

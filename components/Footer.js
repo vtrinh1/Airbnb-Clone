@@ -5,7 +5,7 @@ import { ImInstagram } from 'react-icons/im'
 
 function Footer() {
   return (
-    <div className="border-t-2 bg-gray-100 md:px-32 px-12 py-14">
+    <div className="border-t-2 bg-gray-100 md:px-32 px-12 py-6 md:py-14">
       <div className=" grid grid-cols-1 lg:grid-cols-4 gap-y-10 text-gray-600 border-b-2">
         <div className="space-y-4 text-xs text-gray-800">
           <h5 className="font-bold">ABOUT</h5>
