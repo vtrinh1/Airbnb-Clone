@@ -13,6 +13,7 @@ export default function Home({exploreData, liveCardsData, discoverCardsData}) {
       <Head>
         <title>Airbnb</title>
         <link rel="icon" href="/favicon.ico" />
+        <meta name="description" content="This is an Airbnb clone website. Made with NextJS and love" />
       </Head>
       <Header />
       <HeroImg />
