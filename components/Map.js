@@ -23,7 +23,7 @@ function Map({searchResults}) {
   return (
     <ReactMapGL
       mapStyle="mapbox://styles/mechserker/ckstxubwm1ea817pcs0tl4jmm"
-      mapboxApiAccessToken={process.env.mapbox_key}
+      mapboxApiAccessToken={process.env.NEXT_PUBLIC_MAPBOX_API_KEY}
       {...viewport}
       onViewportChange={(nextViewport) => setViewport(nextViewport)}
     >
@@ -60,5 +60,7 @@ function Map({searchResults}) {
     </ReactMapGL>
   )
 }
+
+
 
 export default Map

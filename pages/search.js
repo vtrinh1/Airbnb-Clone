@@ -4,6 +4,7 @@ import Header from "../components/Header";
 import {format} from "date-fns";
 import InfoCard from "../components/InfoCard";
 import Map from "../components/Map";
+import Head from 'next/head'
 
 function Search({searchResults}) {
   const router = useRouter()
@@ -14,6 +15,10 @@ function Search({searchResults}) {
 
   return (
     <div className="h-screen">
+      <Head>
+        <title>Airbnb</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <Header placeholder={`${location} | ${range} | ${noOfGuests} guests`} />
       <main className="flex flex-col xl:flex-row">
         <section className="flex-grow pt-14 px-6 mb-6">
