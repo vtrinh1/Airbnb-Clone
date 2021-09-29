@@ -5,9 +5,9 @@ import { data } from "autoprefixer";
 
 function HeroImg() {
   const router = useRouter()
-  const date = new Date();
+  const date = new Date()
   const startDate = `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}`
-  const endDate = `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()+3}`
+  const endDate = `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}`
 
   const search = () => {
     router.push({
