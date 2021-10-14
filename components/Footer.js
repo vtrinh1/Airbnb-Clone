@@ -65,10 +65,10 @@ function Footer() {
               <p className="underline cursor-pointer hover:text-gray-600"> English (AU)</p>
               <p className="cursor-pointer hover:text-gray-600">$ <span className="underline">AUD</span></p>
             </div>
-            <div className="hidden sm:inline-flex flex-row space-x-6 text-xl pl-12">
-              <FaFacebookF />
-              <FaTwitter />
-              <ImInstagram />
+            <div className="hidden sm:inline-flex flex-row space-x-6 text-xl pl-12 ">
+              <FaFacebookF className="hover:text-gray-600 cursor-pointer" />
+              <FaTwitter className="hover:text-gray-600 cursor-pointer" />
+              <ImInstagram className="hover:text-gray-600 cursor-pointer" />
             </div>
           </div>
         </div>
